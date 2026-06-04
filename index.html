@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zig Webview Bridge</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; background: #1e1e1e; color: white; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #f7a41d; border: none; border-radius: 50px; color: black; font-weight: bold; }                                               #hasil { margin-top: 20px; font-size: 24px; color: #4ade80; }                                   </style>
+</head>                                           <body>
+    <h2>Uji Jembatan Zig & JavaScript</h2>
+    <p>Klik tombol di bawah untuk menyuruh Zig menghitung angka:</p>
+    <button onclick="panggilZig()">Kirim Angka 5 ke Zig</button>
+    <div id="hasil">Menunggu respon...</div>
+
+    <script>
+        function panggilZig() {
+            // Kita mengirim string JSON "[5]" karena webview_bind menerima argumen berbentuk array JSON mentah
+            window.resep_zig("[5]").then(response => {
+                // Menerima hasil kembalian dari Zig
+                document.getElementById("hasil").innerText = "Hasil dari Backend Zig: " + response;
+            });
+        }
+    </script>
+</body>
+</html>
