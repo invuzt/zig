@@ -6,3 +6,6 @@ Zig 0.16.0
 
 rm -f android.jar
 wget https://repo1.maven.org/maven2/org/robolectric/android-all/11-robolectric-6757853/android-all-11-robolectric-6757853.jar -O android.jar
+
+build so untuk apk:
+zig build-lib src/main.zig -target aarch64-linux-android -dynamic -O ReleaseSmall
